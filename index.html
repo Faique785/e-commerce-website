@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive E-Commerce</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ <nav class="navbar">
+  <div class="navbar-logo">ShopNow</div>
+  <ul class="navbar-links">
+    <li><a href="#" class="active">Home</a></li>
+    <li class="dropdown">
+      <a href="#">Products ▼</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Clothing</a></li>
+        <li><a href="#">Electronics</a></li>
+        <li><a href="#">Books</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Deals</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+  <div class="navbar-icons">
+    <div id="deal-timer">
+  🕒 <strong>Offer ends in:</strong> <span id="timer">05:00</span>
+</div>
+
+  <span id="cart-icon" onclick="toggleCart()">🛒</span>
+
+  <span id="user-icon">👤</span>
+  <span id="wishlist-icon" onclick="openWishlist()">💖</span>
+<button id="theme-toggle">🌙</button>
+
+</div>
+
+</nav>
+
+
+   <div class="price-filter">
+  <label>Min ₹<input type="number" id="min-price" value="0" /></label>
+  <label>Max ₹<input type="number" id="max-price" value="50000" /></label>
+  <button onclick="applyPriceFilter()">Apply</button>
+</div>
+
+  <header>
+    <h1>FaiqueVerse</h1>
+    <input type="text" id="search" placeholder="Search products..." />
+    <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
+  </header>
+
+  <div class="filters">
+  <button onclick="filterCategory('All')">All</button>
+  <button onclick="filterCategory('Electronics')">Electronics</button>
+  <button onclick="filterCategory('Wearables')">Wearables</button>
+  <button onclick="filterCategory('Clothing')">Clothing</button>
+  <button onclick="filterCategory('Accessories')">Accessories</button>
+</div>
+
+  <select id="sort-select">
+  <option value="">Sort By</option>
+  <option value="price-asc">Price: Low to High</option>
+  <option value="price-desc">Price: High to Low</option>
+  <option value="name-asc">Name: A–Z</option>
+  <option value="rating-desc">Rating: High to Low</option>
+</select>
+
+  <main>
+    <div class="products" id="product-list"></div>
+
+    <div class="cart" id="cart">
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p>Total: ₹<span id="total">0</span></p>
+      <button onclick="checkout()">Checkout</button>
+    </div>
+  </main>
+
+  <div id="toast"></div>
+
+  
+
+  <div class="modal" id="product-modal">
+  <div class="modal-content" id="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <!-- Product details will be injected -->
+  </div>
+</div>
+<div id="user-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="close-modal">&times;</span>
+    <h2>Login / Signup</h2>
+    <form>
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+      <p class="signup-link">Don't have an account? <a href="#">Sign up</a></p>
+    </form>
+  </div>
+</div>
+
+<!-- Wishlist Modal -->
+<div id="wishlist-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeWishlist()">&times;</span>
+    <h2>Your Wishlist</h2>
+    <ul id="wishlist-items"></ul>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
